@@ -42,7 +42,7 @@ A systematic literature review was executed across ACM Digital Library, IEEE Xpl
 
 ### 3.4 Ghasempour Yousefdeh & Oyelere (2024) - Co-Presence and Realtime Interaction Dynamics [Recent 2]
 - **Core Contribution:** Investigated quantitative indicators of co-presence and collaborative workflow in real-time virtual reality, showing that shared avatar proximity, responsive avatar visual cues, and low-latency interaction loops significantly elevate team performance and subjective co-presence.
-- **Project Role:** Forms the theoretical foundation for measuring interpersonal pair distance, mutual visual orientation, and collaborative efficiency scores logged in `multiplayer_collaboration_benchmark.csv`.
+- **Project Role:** Forms the theoretical foundation for measuring interpersonal pair distance, mutual visual orientation, and collaborative efficiency scores logged in `multiplayer_collaboration_real_trials.csv`.
 
 ### 3.5 Tserenchimed & Kim (2024) - Viewpoint-Sharing in Collaborative Virtual Environments [Recent 3]
 - **Core Contribution:** Developed low-latency coordinate sharing and shared-object referencing mechanisms in object-based collaborative virtual environments, preventing spatial disorientation and perceptual conflicts when users manipulate common objects from different angles.

@@ -111,7 +111,7 @@ Acrophobia_VRET_Master
 1. **Intake Baseline:** Patient stands on platform at ground level ($0\text{ m}$) for 10 seconds; calibrate resting tremor PSD.
 2. **Bio-Adaptive Ascent:** Platform ascends; observe real-time gaze avoidance and head tremor tracking.
 3. **Habituation Plateau:** Confirm that when composite stress exceeds $0.65$, ascent halts and holds altitude until stress drops.
-4. **Telemetry Verification:** Confirm that `acrophobia_vret_benchmark.csv` logs all 50 patient evaluation trials.
+4. **Telemetry Verification:** Confirm that `SIMULATED_acrophobia_vret_benchmark.csv` logs all 50 patient evaluation trials.
 
 ---
 

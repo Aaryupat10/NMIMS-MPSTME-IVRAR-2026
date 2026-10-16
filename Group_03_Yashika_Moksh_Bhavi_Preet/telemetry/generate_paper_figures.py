@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 Generate publication-grade figures (300 DPI) and empirical benchmark dataset for IVRAR Group 03.
 Authorized Title: How can an interactive VR emergency evacuation simulator resolve egress bottlenecks
@@ -223,7 +230,7 @@ def generate_benchmark_dataset():
         "coordination_success_rate_pct"
     ]
 
-    csv_path = os.path.join(TELEMETRY_DIR, "evacuation_training_benchmark.csv")
+    csv_path = os.path.join(TELEMETRY_DIR, "SIMULATED_evacuation_training_benchmark.csv")
 
     rows = []
     for i in range(n_samples):

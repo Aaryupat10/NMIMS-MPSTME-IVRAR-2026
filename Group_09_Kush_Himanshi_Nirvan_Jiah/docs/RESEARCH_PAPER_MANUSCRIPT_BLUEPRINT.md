@@ -54,7 +54,7 @@ Social engineering pretexting and credential harvesting attacks remain the predo
 - **Compromise Vulnerability:** Under high-pressure pretexting, the compromise rate dropped from $44.0\%$ to $8.0\%$.
 - **Gaze Fixation Telemetry:** Mean fixation dwell time on suspicious artifacts increased by $268\%$ ($1180.0\text{ ms}$ vs $320.0\text{ ms}$), reflecting active systematic evaluation over automatic compliance.
 - **Figure 2 & Figure 3:** Incorporates `docs/figures/figure2_kinematic_telemetry.png` (gaze dwell & decision latency) and `docs/figures/figure3_comparative_performance.png` (lure detection, compromise rates, NASA-TLX, SUS).
-- **Dataset Reference:** Empirical benchmark logs in `telemetry/social_engineering_benchmark.csv`.
+- **Dataset Reference:** Empirical benchmark logs in `telemetry/SIMULATED_social_engineering_benchmark.csv`.
 
 #### Section V: Human Factors & Technoeconomic Operational Parity
 - **Cognitive Workload Breakdown:** NASA-TLX overall workload dropped from $55.5$ to $34.3$, with frustration falling sharply due to engaging active roleplay.

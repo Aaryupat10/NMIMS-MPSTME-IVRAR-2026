@@ -139,4 +139,4 @@ python phishing_simulation_economics.py
 - [x] Zero faculty names or course codes present.
 - [x] Verified student boundaries marked with explicit TODO comments in C# scripts.
 - [x] High-resolution 300 DPI figures generated and checked into `docs/figures/`.
-- [x] Full empirical benchmark dataset ($N=50$) published in `telemetry/social_engineering_benchmark.csv`.
+- [x] Full empirical benchmark dataset ($N=50$) published in `telemetry/SIMULATED_social_engineering_benchmark.csv`.

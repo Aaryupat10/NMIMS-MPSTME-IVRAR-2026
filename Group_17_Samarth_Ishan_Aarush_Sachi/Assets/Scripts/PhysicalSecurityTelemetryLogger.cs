@@ -34,7 +34,7 @@ namespace IVRAR.SecurityAudit
 
         [Header("Telemetry Configuration")]
         [SerializeField] private float sampleFrequencyHz = 20.0f;
-        [SerializeField] private string outputCsvFilename = "security_audit_benchmark.csv";
+        [SerializeField] private string outputCsvFilename = "security_audit_real_trials.csv";
 
         private List<AuditTrialRecord> sessionRecords = new List<AuditTrialRecord>();
         private float sampleTimer = 0.0f;

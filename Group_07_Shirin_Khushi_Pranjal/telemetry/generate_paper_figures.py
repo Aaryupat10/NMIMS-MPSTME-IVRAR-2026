@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 Generate publication-grade figures (300 DPI) and empirical benchmark dataset for IVRAR Group 07.
 Authorized Title: To what extent does an interactive VR spatial crime scene reconstruction
@@ -250,7 +257,7 @@ def generate_figure3():
 # -------------------------------------------------------------------------
 def generate_benchmark_csv():
     np.random.seed(107)
-    csv_path = os.path.join(TELEMETRY_DIR, "forensic_reconstruction_benchmark.csv")
+    csv_path = os.path.join(TELEMETRY_DIR, "SIMULATED_forensic_reconstruction_benchmark.csv")
     
     headers = [
         "participant_id",

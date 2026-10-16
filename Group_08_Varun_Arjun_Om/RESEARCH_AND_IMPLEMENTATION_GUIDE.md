@@ -128,4 +128,4 @@ python campus_orientation_economics.py
 - [x] Zero faculty names or course codes present.
 - [x] Verified student boundaries marked with explicit TODO comments in C# scripts.
 - [x] High-resolution 300 DPI figures generated and checked into `docs/figures/`.
-- [x] Full empirical benchmark dataset ($N=50$) published in `telemetry/campus_orientation_benchmark.csv`.
+- [x] Full empirical benchmark dataset ($N=50$) published in `telemetry/SIMULATED_campus_orientation_benchmark.csv`.

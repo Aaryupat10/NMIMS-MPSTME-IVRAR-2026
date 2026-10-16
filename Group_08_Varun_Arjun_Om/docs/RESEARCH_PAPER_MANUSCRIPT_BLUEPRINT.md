@@ -55,7 +55,7 @@ Navigating sprawling university campus environments poses a significant orientat
 - **Disorientation & Backtracking Analysis:** Backtracking incidents plunged from $7.8 \pm 1.5$ down to $1.4 \pm 0.5$ events, while total path length traversed decreased from $1850.0\text{ m}$ to $1180.0\text{ m}$.
 - **Navigational Self-Efficacy Shift:** Pre/post SBSOD analysis revealed a substantial gain ($\Delta = +1.85 \pm 0.30$) in the AR condition, indicating strong internal cognitive map consolidation.
 - **Figure 2 & Figure 3:** Incorporates `docs/figures/figure2_kinematic_telemetry.png` (campus trajectories & SBSOD shifts) and `docs/figures/figure3_comparative_performance.png` (discovery, backtracking, NASA-TLX, SUS).
-- **Dataset Reference:** Raw empirical telemetry recorded in `telemetry/campus_orientation_benchmark.csv`.
+- **Dataset Reference:** Raw empirical telemetry recorded in `telemetry/SIMULATED_campus_orientation_benchmark.csv`.
 
 #### Section V: Human Factors & Technoeconomic Operational Parity
 - **Cognitive Workload Breakdown:** NASA-TLX overall workload declined from $62.0$ to $36.0$, with mental demand and frustration subscales exhibiting steep declines due to intuitive spatial cues.

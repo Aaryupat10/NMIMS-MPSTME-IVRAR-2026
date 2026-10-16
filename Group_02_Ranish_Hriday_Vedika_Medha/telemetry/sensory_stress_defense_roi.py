@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 sensory_stress_defense_roi.py
 Project: Immersive VR Sensory-Stress Defensive Security Training under Low Visibility

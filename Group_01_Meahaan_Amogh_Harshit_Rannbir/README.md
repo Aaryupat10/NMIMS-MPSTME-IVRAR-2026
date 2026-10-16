@@ -103,7 +103,7 @@ For the exhaustive literature analysis, mathematical derivations, and viva defen
 |       `-- figure3_comparative_performance.png        <- 300 DPI comparative benchmark visualization
 `-- telemetry/
     |-- .gitkeep
-    |-- acoustic_benchmark_data.csv                    <- Empirical benchmark trial dataset (N = 50 runs)
+    |-- acoustic_real_trials.csv                    <- Empirical benchmark trial dataset (N = 50 runs)
     |-- acoustic_av_integration_roi.py                 <- Techno-managerial dimensionless operational model
     |-- generate_paper_figures.py                      <- Standalone 300 DPI publication figure generator
     |-- kennedy_ssq_calculator.py                      <- Simulator sickness questionnaire evaluation tool
@@ -125,7 +125,7 @@ To ensure academic rigor and authentic student learning, this repository enforce
   * Dimensionless techno-managerial economic framework (`telemetry/acoustic_av_integration_roi.py`).
 * **Student Technical Deliverables (Required for Evaluation):**
   * Implement and calibrate the frequency-dependent absorption and Schroeder integration in `Assets/Scripts/AcousticRaycaster.cs` and `Assets/Scripts/RT60TelemetryLogger.cs` (completing all `# TODO [Student Roll / Name]` blocks).
-  * Execute simulation trials across untreated, partially treated, and fully optimized home cinema configurations to collect empirical data in `telemetry/acoustic_benchmark_data.csv`.
+  * Execute simulation trials across untreated, partially treated, and fully optimized home cinema configurations to collect empirical data in `telemetry/acoustic_real_trials.csv`.
   * Re-run `telemetry/acoustic_av_integration_roi.py` with live experimental data to regenerate publication figures.
   * Author the final 4-page IEEE conference paper in `docs/RESEARCH_PAPER_MANUSCRIPT_BLUEPRINT.md` and defend individual Git commits during the oral viva.
 

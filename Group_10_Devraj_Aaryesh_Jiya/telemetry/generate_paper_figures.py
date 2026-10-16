@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 Generate publication-grade figures (300 DPI) and empirical benchmark dataset for IVRAR Group 10.
 Authorized Title: How can an OpenCV-based color and fiducial hand-tracking pipeline integrated with Unity VR
@@ -244,7 +251,7 @@ def generate_figure3():
 # -------------------------------------------------------------------------
 def generate_benchmark_csv():
     np.random.seed(110)
-    csv_path = os.path.join(TELEMETRY_DIR, "hand_tracking_benchmark.csv")
+    csv_path = os.path.join(TELEMETRY_DIR, "SIMULATED_hand_tracking_benchmark.csv")
     
     headers = [
         "participant_id",

@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 Empirical Benchmark Data Generator and 300 DPI Publication Figure Pipeline
 Group 15: Automated Bio-Adaptive VR Exposure Therapy for Acrophobia Desensitization
@@ -7,7 +14,7 @@ Outputs:
 1. docs/figures/figure1_system_architecture.png (300 DPI)
 2. docs/figures/figure2_kinematic_telemetry.png (300 DPI)
 3. docs/figures/figure3_comparative_performance.png (300 DPI)
-4. telemetry/acrophobia_vret_benchmark.csv (N=50 clinical dataset)
+4. telemetry/SIMULATED_acrophobia_vret_benchmark.csv (N=50 clinical dataset)
 
 CONSTRAINTS:
 - ZERO currency symbols.
@@ -39,7 +46,7 @@ os.makedirs(TELEMETRY_DIR, exist_ok=True)
 # ----------------------------------------------------------------------
 # 1. Generate Empirical Benchmark CSV Dataset (N = 50 Patients)
 # ----------------------------------------------------------------------
-csv_path = os.path.join(TELEMETRY_DIR, "acrophobia_vret_benchmark.csv")
+csv_path = os.path.join(TELEMETRY_DIR, "SIMULATED_acrophobia_vret_benchmark.csv")
 patients = [f"PT_{i+1:03d}" for i in range(50)]
 
 # Half patients in Static Manual VRET, half in Automated Bio-Adaptive VRET

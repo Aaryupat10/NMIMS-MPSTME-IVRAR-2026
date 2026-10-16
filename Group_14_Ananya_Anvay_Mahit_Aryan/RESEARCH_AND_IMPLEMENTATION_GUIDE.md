@@ -119,7 +119,7 @@ PlanetaryRover_Teleoperation_Master
 1. **Calibration:** Set target transmission latency to $2.5\text{ seconds}$ in the inspector.
 2. **Delayed Baseline Run:** Disable predictive ghost avatar; attempt navigating the boulder field using delayed camera feed. Observe operator hunting oscillations.
 3. **Predictive Digital Twin Run:** Enable predictive ghost avatar and trajectory ribbon; re-run identical course. Observe continuous forward advance and anticipatory obstacle clearance.
-4. **Telemetry Verification:** Verify that `rover_teleoperation_benchmark.csv` logs all 50 experimental runs.
+4. **Telemetry Verification:** Verify that `SIMULATED_rover_teleoperation_benchmark.csv` logs all 50 experimental runs.
 
 ---
 

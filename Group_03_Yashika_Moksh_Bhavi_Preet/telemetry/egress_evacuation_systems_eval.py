@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 egress_evacuation_systems_eval.py
 Project: Interactive VR Emergency Evacuation & Egress Bottleneck Simulation for Hostels
@@ -29,7 +36,7 @@ plt.rcParams['legend.fontsize'] = 9
 plt.rcParams['figure.titlesize'] = 13
 plt.rcParams['figure.dpi'] = 300
 
-def generate_benchmark_dataset(n_trials=50, output_csv="telemetry/evacuation_training_benchmark.csv"):
+def generate_benchmark_dataset(n_trials=50, output_csv="telemetry/SIMULATED_evacuation_training_benchmark.csv"):
     """Generates synthetic benchmark telemetry dataset based on empirical hostel evacuation trials."""
     np.random.seed(202)
     
@@ -227,7 +234,7 @@ def generate_publication_figures(df, figures_dir="docs/figures"):
 
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    csv_path = os.path.join(base_dir, "telemetry", "evacuation_training_benchmark.csv")
+    csv_path = os.path.join(base_dir, "telemetry", "SIMULATED_evacuation_training_benchmark.csv")
     fig_dir = os.path.join(base_dir, "docs", "figures")
     
     df = generate_benchmark_dataset(n_trials=50, output_csv=csv_path)

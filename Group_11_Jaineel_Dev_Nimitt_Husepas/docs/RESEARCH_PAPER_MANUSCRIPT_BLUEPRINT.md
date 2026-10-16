@@ -56,7 +56,7 @@ University campuses and large-scale public facilities host thousands of visitors
 - **Disorientation Error Reduction:** Route-finding wrong turns plunged from $6.4 \pm 1.1$ errors down to $0.8 \pm 0.3$ errors ($87.5\%$ reduction).
 - **Handoff Latency Verification:** Total cross-device transfer latency averaged $3.45 \pm 0.40\text{ s}$ (Route compute: $0.45\text{ s}$, QR render: $0.15\text{ s}$, Camera scan: $1.20\text{ s}$, WebXR load: $1.65\text{ s}$), comfortably beneath the 4.0-second threshold.
 - **Figure 2 & Figure 3:** Incorporates `docs/figures/figure2_kinematic_telemetry.png` (transit distributions & handoff latency budget) and `docs/figures/figure3_comparative_performance.png` (duration, errors, NASA-TLX, SUS).
-- **Dataset Reference:** Empirical benchmark data published in `telemetry/kiosk_handoff_benchmark.csv`.
+- **Dataset Reference:** Empirical benchmark data published in `telemetry/SIMULATED_kiosk_handoff_benchmark.csv`.
 
 #### Section V: Human Factors, Sustainability & Technoeconomic Operational Parity
 - **Cognitive Workload Breakdown:** NASA-TLX overall workload dropped from $57.5$ to $28.5$, with mental demand and frustration subscales showing significant relief.

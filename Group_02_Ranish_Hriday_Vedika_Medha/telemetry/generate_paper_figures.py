@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 import os
 import csv
 import numpy as np
@@ -14,7 +21,7 @@ os.makedirs(figures_dir, exist_ok=True)
 # 1. Generate empirical benchmark dataset (N = 50 trials)
 np.random.seed(42)
 n_trials = 50
-csv_path = os.path.join(base_dir, 'security_training_benchmark.csv')
+csv_path = os.path.join(base_dir, 'SIMULATED_security_training_benchmark.csv')
 
 fieldnames = [
     'trial_id',

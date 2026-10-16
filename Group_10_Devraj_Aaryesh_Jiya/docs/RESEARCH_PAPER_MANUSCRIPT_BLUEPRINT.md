@@ -55,7 +55,7 @@ Immersive virtual reality (VR) offers transformative capabilities for collaborat
 - **Gesture Classification Accuracy:** Mean gesture recognition accuracy reached $94.6\% \pm 2.0\%$, with the confusion matrix confirming minimal false triggers between Pinch and Fist states.
 - **Task Duration:** Mean inspection duration was significantly faster with optical tracking ($218.6 \pm 16.0\text{ s}$) than with physical controllers ($265.4 \pm 22.0\text{ s}$, $t(48) = 8.65, p < 0.0001$), driven by natural hand opening and closing.
 - **Figure 2 & Figure 3:** Incorporates `docs/figures/figure2_kinematic_telemetry.png` (latency breakdown & confusion matrix) and `docs/figures/figure3_comparative_performance.png` (task duration, accuracy, NASA-TLX, SUS).
-- **Dataset Reference:** Empirical benchmark logs in `telemetry/hand_tracking_benchmark.csv`.
+- **Dataset Reference:** Empirical benchmark logs in `telemetry/SIMULATED_hand_tracking_benchmark.csv`.
 
 #### Section V: Human Factors & Technoeconomic Operational Parity
 - **Ergonomics & Cognitive Workload:** NASA-TLX physical demand dropped from $56.0$ to $32.0$ because participants did not need to grip 200g handheld wands for extended review sessions. Overall workload declined from $45.0$ to $32.8$.

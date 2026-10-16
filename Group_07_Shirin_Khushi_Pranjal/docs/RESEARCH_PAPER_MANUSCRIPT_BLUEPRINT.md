@@ -55,7 +55,7 @@ Digital documentation of physical crime scenes is undergoing a paradigm shift fr
 - **Spatial Localization Precision:** Euclidean distance error between placed markers and ground truth coordinates dropped from $14.2 \pm 3.1\text{ cm}$ (2D baseline estimates) to $3.4 \pm 0.9\text{ cm}$ in VR.
 - **Timeline Sequencing Concordance:** Kendall-Tau rank correlation rose from $\tau = 0.48 \pm 0.11$ to $\tau = 0.86 \pm 0.06$ ($p < 0.001$), demonstrating superior comprehension of causal crime dynamics.
 - **Figure 2 & Figure 3:** Incorporates `docs/figures/figure2_kinematic_telemetry.png` (trajectory & error residuals) and `docs/figures/figure3_comparative_performance.png` (completeness, sequencing, NASA-TLX, SUS).
-- **Dataset Reference:** All raw telemetry published in `telemetry/forensic_reconstruction_benchmark.csv`.
+- **Dataset Reference:** All raw telemetry published in `telemetry/SIMULATED_forensic_reconstruction_benchmark.csv`.
 
 #### Section V: Human Factors & Technoeconomic Operational Parity
 - **Cognitive Workload Breakdown:** NASA-TLX overall workload dropped from $68.0$ to $46.0$, with mental demand and frustration subscales showing dramatic reductions due to natural spatial contextualization.

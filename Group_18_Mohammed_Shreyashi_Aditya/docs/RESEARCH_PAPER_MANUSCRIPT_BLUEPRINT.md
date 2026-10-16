@@ -57,7 +57,7 @@ Implemented in `Assets/Scripts/SpatialVoiceTelemetryLogger.cs`:
 
 ### 3.4 Verbal Coordination Telemetry & Technoeconomic Modeling
 - Continuous tracking of utterance counts, speech collision / overlap duration ($R_{\text{overlap}}$), and inter-avatar Euclidean distance.
-- Export of trial records to `telemetry/multiplayer_collaboration_benchmark.csv`.
+- Export of trial records to `telemetry/multiplayer_collaboration_real_trials.csv`.
 - Institutional engineering lab technoeconomic model encoded in `telemetry/multiplayer_collaboration_eval.py`.
 
 ---

@@ -68,7 +68,7 @@ K031      Sachi Kumar         Security QA & Compliance Lead              securit
 ### 2.3 Aarush Mishra (B155) - Breach Telemetry & Audit Specialist
 - Lead responsibility for 20 Hz spatial tracking and raycast credential inspection in `Assets/Scripts/PhysicalSecurityTelemetryLogger.cs`.
 - Measurement of interpersonal stand-off distance and security challenge decision latencies.
-- Automated CSV telemetry logging to `telemetry/security_audit_benchmark.csv`.
+- Automated CSV telemetry logging to `telemetry/security_audit_real_trials.csv`.
 - Git Branch: `feat/b155-breach-telemetry-aud`
 
 ### 2.4 Sachi Kumar (K031) - Security QA & Compliance Lead
@@ -109,7 +109,7 @@ Corporate_SecurityAudit_Master
 1. **Scene Initialization:** Load corporate lobby scene; confirm autonomous NPC approaches turnstile.
 2. **Pretext Trigger:** NPC plays spatialized audio request ("Hey, could you hold the door? My hands are full!").
 3. **Trainee Decision:** Trainee can either challenge credentials, direct to reception, or hold door.
-4. **Telemetry Verification:** Confirm `security_audit_benchmark.csv` logs trial ID, latency, gaze dwell time, and breach outcome.
+4. **Telemetry Verification:** Confirm `security_audit_real_trials.csv` logs trial ID, latency, gaze dwell time, and breach outcome.
 
 ---
 

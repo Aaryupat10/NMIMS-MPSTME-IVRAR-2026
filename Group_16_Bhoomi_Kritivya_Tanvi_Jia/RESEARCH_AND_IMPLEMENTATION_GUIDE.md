@@ -72,7 +72,7 @@ I069      Jia Jadhav          Human Factors & Usability Engineer         mci_tri
 ### 2.3 Tanvi Paithankar (I044) - Spatial Telemetry & Confusion Matrix Specialist
 - Lead responsibility for real-time spatial traversal tracking and gaze dwell monitoring in `Assets/Scripts/TriageTelemetryLogger.cs`.
 - Automated generation of multi-class triage confusion matrices comparing trainee tags against ground truth.
-- Extraction of under-triage and over-triage error ratios and automated CSV logging to `telemetry/mci_triage_benchmark.csv`.
+- Extraction of under-triage and over-triage error ratios and automated CSV logging to `telemetry/SIMULATED_mci_triage_benchmark.csv`.
 - Git Branch: `feat/i044-spatial-telemetry-co`
 
 ### 2.4 Jia Jadhav (I069) - Human Factors & Usability Engineer
@@ -113,7 +113,7 @@ MCI_Triage_Simulation_Master
 1. **Scene Initialization:** Load chemical refinery scene; confirm 50 autonomous casualties spawn with appropriate ground-truth tags.
 2. **Mobility Broadcast:** Audio announcement triggers walking wounded casualties to migrate to the designated decontamination zone.
 3. **Casualty Evaluation:** Trainee navigates through hazards to each victim, evaluates breathing, checks pulse, tests verbal response, and applies ribbon.
-4. **Telemetry Verification:** Confirm `mci_triage_benchmark.csv` logs all 50 casualty assessment trials with exact coordinates and latencies.
+4. **Telemetry Verification:** Confirm `SIMULATED_mci_triage_benchmark.csv` logs all 50 casualty assessment trials with exact coordinates and latencies.
 
 ---
 

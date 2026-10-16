@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 Publication Figure Generator & Empirical Benchmark Dataset Creator
 Group 18: Networked Multiplayer VR with Real-Time Spatial Voice & 3D Physical Puzzle Manipulation
@@ -25,7 +32,7 @@ PROJECT_DIR = os.path.dirname(BASE_DIR)
 DOCS_FIG_DIR = os.path.join(PROJECT_DIR, "docs", "figures")
 os.makedirs(DOCS_FIG_DIR, exist_ok=True)
 
-CSV_PATH = os.path.join(BASE_DIR, "multiplayer_collaboration_benchmark.csv")
+CSV_PATH = os.path.join(BASE_DIR, "SIMULATED_multiplayer_collaboration_benchmark.csv")
 
 def generate_empirical_dataset():
     np.random.seed(42)

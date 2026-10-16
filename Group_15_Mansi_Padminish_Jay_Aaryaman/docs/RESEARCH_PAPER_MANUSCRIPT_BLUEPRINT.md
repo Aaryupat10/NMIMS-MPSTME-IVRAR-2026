@@ -50,7 +50,7 @@ where $S(t) = 0.5 R_{\text{avoid}} + 0.5 P_{\text{tremor}}$. If $S(t) \ge 0.65$,
 Renders a photorealistic skyscraper exterior, glass-bottomed observation platform, and panoramic urban vista with dynamically attenuated 3D spatial wind audio.
 
 ### 3.4 Clinical Analytics & Psychometrics (`B130 - Aaryaman Gehani`)
-Tracks longitudinal habituation curves, logs SUDS anxiety scores, and exports standardized clinical telemetry to `telemetry/acrophobia_vret_benchmark.csv`.
+Tracks longitudinal habituation curves, logs SUDS anxiety scores, and exports standardized clinical telemetry to `telemetry/SIMULATED_acrophobia_vret_benchmark.csv`.
 
 ---
 

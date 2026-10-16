@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 # Publication Figures Engine and Benchmark Dataset Generator
 # Group: IVRAR Group 01
 # Output: 300 DPI Publication-Grade Figures and CSV Dataset
@@ -68,7 +75,7 @@ data_mat = np.column_stack([
     np.round(rework_hours, 1)
 ])
 
-csv_path = os.path.join(telemetry_dir, "acoustic_benchmark_data.csv")
+csv_path = os.path.join(telemetry_dir, "SIMULATED_acoustic_benchmark_data.csv")
 np.savetxt(csv_path, data_mat, delimiter=",", header=header, comments="", fmt=["%d", "%d", "%.3f", "%.1f", "%.1f", "%.1f"])
 print(f"[SUCCESS] Wrote benchmark dataset: {csv_path}")
 

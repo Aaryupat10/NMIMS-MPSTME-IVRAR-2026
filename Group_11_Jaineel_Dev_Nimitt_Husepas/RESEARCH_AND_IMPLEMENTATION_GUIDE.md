@@ -105,7 +105,7 @@ Campus_Kiosk_Handoff_Master
 1. **Kiosk Route Generation:** Select destination on kiosk interface; verify topological path extraction and QR code rendering within $50\text{ ms}$.
 2. **Mobile Scan & Session Ingestion:** Scan QR code with mobile camera; verify WebXR session handoff latency remains $< 2.0\text{ s}$.
 3. **Route Traversal:** Walk along the physical corridor; verify 3D chevrons stay anchored to real-world floor space without drift.
-4. **Telemetry Verification:** Verify that `kiosk_handoff_benchmark.csv` logs all 50 trial records with verified latency, duration, and accuracy metrics.
+4. **Telemetry Verification:** Verify that `SIMULATED_kiosk_handoff_benchmark.csv` logs all 50 trial records with verified latency, duration, and accuracy metrics.
 
 ---
 

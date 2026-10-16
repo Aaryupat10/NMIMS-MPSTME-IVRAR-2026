@@ -1,49 +1,50 @@
-# Continuous Assessment (ICA) Grading Rubric & Evaluation Policy
-**Course:** Introduction to Virtual Reality & Augmented Reality (IVRAR - 702COI002)  
-**Academic Year:** 2026–2027 | Semester V (Odd Semester)  
-**Institution:** SVKM's NMIMS MPSTME, Mumbai  
-**Framework:** ABET Criterion 3 Student Outcomes & CDIO Syllabus  
+# IVRAR (702TG0C003) Capstone: Grading Rubric & Evaluation Policy
+**SVKM's NMIMS · MPSTME Mumbai · AY 2026–27 Odd Semester · Dr. Sunny Nanade**
+
+> This document replaces the earlier 100-mark, 4-milestone scheme. The capstone is an **ICA component worth 20 marks**.
+
+| Item | Detail |
+|---|---|
+| **Total Capstone Marks** | **20 Marks** |
+| **Submission Due Date** | **Monday, 26-Oct-2026, 23:59 IST** |
+| **Studio Showcase, Expo & Viva Voce** | **Saturday, 31-Oct-2026** |
+| What you submit | (1) Your group's Technical Dossier as PDF on MS Teams, turned in by **every** member · (2) the filled `.docx` **and** `.pdf` committed to `Group_XX_*/docs/` · (3) your GitHub Release `group-XX-v1.0` · (4) your LinkedIn video URL in dossier Section 5 |
 
 ---
 
-## 1. Overall ICA Marks Distribution (100 Marks Total)
+## Component 1: SBL Studio Project (10 Marks)
+Evaluated on:
+- **Unity scene composition**: a working XR scene that addresses your authorised Aalborg question.
+- **C# script implementation**: your state machine and telemetry logging (dossier Section 2, including the honest script-authorship table).
+- **Git LFS compliance**: binary assets tracked by LFS; no builds committed to Git history.
+- **Commit dispersion across all group members**: every member commits their own work from their own GitHub account. Per-member commits are checked against dossier Section 3.2.
+- **GitHub Release** tagged `group-XX-v1.0` with a runnable `.apk` (Quest / Android) or `.exe` (PCVR).
 
-| Milestone / Component | Academic Week | Focus & Deliverables | Weightage |
-| :--- | :--- | :--- | :--- |
-| **Milestone 1 (Sprint 0)** | Weeks 1–2 | Team Onboarding, Branching Hygiene, Roster Verification, Scope Formulation | **10 Marks** |
-| **Milestone 2 (Sprint 1)** | Weeks 3–6 | Minimum Viable Model/Scene, Initial Telemetry, Baseline Hypothesis Testing | **20 Marks** |
-| **Milestone 3 (Sprint 2)** | Weeks 7–10 | Closed-Loop Integration, Rigorous Empirical Testing ($N \ge 12/50$), Full Analytics | **20 Marks** |
-| **Milestone 4 (Final Viva)** | Weeks 11–12 | 4-Page IEEE Paper Draft, Live Demo to Experts, Individual Oral Viva Defense | **50 Marks** |
-| **Total Continuous Assessment** | | **Comprehensive Course Evaluation** | **100 Marks** |
+## Component 2: DBL Usability Case Study (5 Marks)
+Evaluated on:
+- **Section 4 empirical data pack** of the Technical Dossier.
+- **Genuine human user trials ($N \ge 10$)** with voluntary, consenting adult participants.
+- **System Usability Scale (SUS) / NASA-TLX** cognitive workload profiling (or a latency / frame-rate profile where the research question is about system performance).
+- **Raw CSV trial data** committed to `Group_XX_*/telemetry/`, with plots that re-generate from it.
 
----
+> Files named `SIMULATED_*` and the starter figures in `docs/figures/` contain **synthetic** data for demonstration only. Reporting simulated numbers as human trial results is data fabrication and scores **zero** for this component.
 
-## 2. Detailed Milestone Evaluation Criteria
-
-### Milestone 1: Engineering Onboarding & Problem Framing (10 Marks)
-* **Git Version Control Setup (3 Marks):** Every group member cloned the monorepo, created their assigned feature branch, and opened a compliant PR.
-* **Roster & Toolchain Verification (3 Marks):** `TEAM_ROSTER.json` completed with verified SAP IDs, roles, GitHub handles, and dependencies tested.
-* **Aalborg Interrogative Formulation (4 Marks):** Clear problem interrogative, independent/dependent variables identified, null and alternative hypotheses formulated.
-
-### Milestone 2: Minimum Viable Engineering Build (20 Marks)
-* **Physical / Spatial Architecture (8 Marks):** Valid MuJoCo MJCF model with proper joint friction/damping OR WebXR/Unity spatial environment with scale calibration.
-* **Core Kinematic / Interaction Logic (7 Marks):** Functional control loop or interaction mechanics executing without runtime errors.
-* **Initial Telemetry Pipeline (5 Marks):** CSV logging script operational, tracking at least 5 spatial/temporal state variables.
-
-### Milestone 3: Quantitative Experimentation & System Integration (20 Marks)
-* **Experimental Execution (8 Marks):** Rigorous testing protocol completed ($N \ge 50$ Monte Carlo physics runs OR $N \ge 12$ human usability trials).
-* **Statistical Analysis (6 Marks):** Formal hypothesis testing ($t$-test, $p < 0.05$, Cohen's $d$, 95% confidence intervals).
-* **Technoeconomic / Psychometric Impact (6 Marks):** Dimensionless cost parity model $\kappa$ / NASA-TLX, SUS, and SSQ psychometric validation.
-
-### Milestone 4: Final Deliverables, Expert Panel Demo & Individual Viva (50 Marks)
-* **IEEE/ACM 4-Page Conference Paper (15 Marks):** Formatted in standard 2-column IEEEtran style with 3 required figures, 2 required tables, and 5 genuine literature citations with DOIs.
-* **Working Live Demonstration (15 Marks):** Flawless live execution in front of visiting industry and academic experts.
-* **Individual Oral Viva Defense (15 Marks):** Direct questioning of EACH student on their declared specialty. Free-riding is strictly penalized.
-* **Git Commit Trajectory & Hygiene (5 Marks):** Verification of individual commit history, conventional commit messages, and zero direct main pushes.
+## Component 3: Studio Showcase & Viva Voce (5 Marks)
+Evaluated on:
+- **Section 5 public LinkedIn video showcase (3–4 minutes)** showing the running build, real user-testing data and each member's reflection.
+- **Verified peer reviews** of the two assigned groups (dossier Section 5.2).
+- **Unassisted individual viva voce defence** during the Expo on **Saturday, 31-Oct-2026**. Each member is questioned on their own role and code and on the project as a whole.
 
 ---
 
-## 3. Strict Institutional Compliance Safeguards
-1. **Zero Currency Rule:** Any submission containing raw monetary units or fiat currency denominations will receive an immediate 5-mark deduction and must be resubmitted with dimensionless cost parity ratios.
-2. **Student Recognition & Attribution Rule:** All student engineering deliverables must be explicitly mapped to verified Git commit trajectories in `TEAM_ROSTER.json` and defended individually during the oral viva.
-3. **Plagiarism & Evidence Authenticity:** Fabricated citations or hallucinated DOIs result in an immediate zero for Milestone 4.
+## Mandatory Individual Turn-in Rule
+The work is collaborative, but marks are entered **per student** in the NMIMS Examination Portal.
+**Every member must open the MS Teams assignment, attach the group's final PDF dossier, and click "Turn in" individually.**
+A student who does not turn in cannot be awarded capstone marks, even if teammates have submitted.
+
+## Integrity Safeguards
+1. **Attribution:** individual contributions must match the git history and `TEAM_ROSTER.json`, and be defended in the viva.
+2. **Evidence authenticity:** every factual claim and citation must be verified at its primary source (dossier Section 1.1). Fabricated citations or hallucinated DOIs score zero for the component in which they appear.
+3. **AI use:** permitted, but must be logged in dossier Section 5.1. Undisclosed AI-generated content is treated as an integrity breach.
+4. **Human participants:** written consent, anonymised IDs (P01, P02…), no personal data in the repository.
+5. **Zero Currency Rule (retained from the earlier policy):** submissions must express cost comparisons as dimensionless cost-parity ratios, not raw monetary amounts; non-compliant work is returned for correction.

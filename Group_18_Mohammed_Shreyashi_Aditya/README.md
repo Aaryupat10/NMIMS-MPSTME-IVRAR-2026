@@ -63,7 +63,7 @@ The platform comprises four interconnected software modules:
 1. **Network Sync & Ownership Core (`Assets/Scripts/NetworkedPuzzleSyncManager.cs`, `B077 - Mohammed Saquib Rakhangi`):** Authoritative state synchronization at 30 Hz, grab arbitration locks, dead reckoning, and Hermite spline interpolation.
 2. **Collaborative 3D Puzzle Rig (`B112 - Shreyashi Srivastava`):** 6-piece interlocking cube geometry, snap-to-slot triggers, dual-user cooperative grab physics, and impulse haptic feedback.
 3. **Spatial HRTF Voice Engine (`B118 - Aditya Verma`):** 3D binaural directional audio filtering, logarithmic distance roll-off (1m-10m), real-time RMS voice activity detection (VAD), and spatial presence profiling.
-4. **Verbal Coordination & Telemetry Core (`Assets/Scripts/SpatialVoiceTelemetryLogger.cs`, `telemetry/multiplayer_collaboration_eval.py`):** Speech collision and overlap ratio tracking, Collaborative Efficiency Index (CEI) calculation, and automated CSV logging to `telemetry/multiplayer_collaboration_benchmark.csv`.
+4. **Verbal Coordination & Telemetry Core (`Assets/Scripts/SpatialVoiceTelemetryLogger.cs`, `telemetry/multiplayer_collaboration_eval.py`):** Speech collision and overlap ratio tracking, Collaborative Efficiency Index (CEI) calculation, and automated CSV logging to `telemetry/multiplayer_collaboration_real_trials.csv`.
 
 ### Publication-Grade Figures (300 DPI)
 - `docs/figures/figure1_system_architecture.png`: Multi-tier system architecture diagram showing Network Sync Core, 3D Puzzle Rig, Spatial Audio Engine, and Telemetry Analytics.

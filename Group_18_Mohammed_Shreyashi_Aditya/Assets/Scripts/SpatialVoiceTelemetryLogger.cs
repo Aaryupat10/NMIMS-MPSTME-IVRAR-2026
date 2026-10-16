@@ -38,7 +38,7 @@ namespace IVRAR.MultiplayerPuzzle
 
         [Header("Voice Activity Detection (VAD)")]
         [SerializeField] private float vadRmsThreshold = 0.02f;
-        [SerializeField] private string outputCsvFilename = "multiplayer_collaboration_benchmark.csv";
+        [SerializeField] private string outputCsvFilename = "multiplayer_collaboration_real_trials.csv";
 
         private List<CollaborationTrialRecord> trialRecords = new List<CollaborationTrialRecord>();
         private int totalUtteranceCount = 0;

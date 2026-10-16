@@ -64,7 +64,7 @@ $$\tau_{\text{payback}} = \frac{I_0}{\Delta C_{\text{annual}}} = 5.1\text{ opera
 ---
 
 ## V. Experimental Evaluation and Results
-Simulations were performed across $N = 50$ randomized room configurations (`telemetry/acoustic_benchmark_data.csv`). Key findings visualized at 300 DPI (`telemetry/acoustic_av_integration_roi.py`):
+Simulations were performed across $N = 50$ randomized room configurations (`telemetry/acoustic_real_trials.csv`). Key findings visualized at 300 DPI (`telemetry/acoustic_av_integration_roi.py`):
 * **Figure 1:** System architecture, ray reflection paths, and CEDIA compliance pipeline (`docs/figures/figure1_system_architecture.png`).
 * **Figure 2:** Octave-band impulse response decay curves and Schroeder backward integration (`docs/figures/figure2_kinematic_telemetry.png`).
 * **Figure 3:** Comparative benchmark of untreated ($RT_{60} = 0.78\text{ s}$), partially treated ($0.51\text{ s}$), and fully optimized ($0.34\text{ s}$) rooms against CEDIA/CTA-RP22 tolerances (`docs/figures/figure3_comparative_performance.png`).

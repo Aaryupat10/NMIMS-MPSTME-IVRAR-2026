@@ -1,3 +1,10 @@
+# =====================================================================================
+# NOTICE TO STUDENTS:
+# The functions in this script generate SYNTHETIC/SIMULATED reference data for demonstration purposes only.
+# Per Section 4 of your IVRAR Technical Dossier, you MUST conduct real human user trials (N >= 10),
+# log actual telemetry/SUS data, and replace simulated numbers with your genuine experimental results.
+# Submitting simulated data as real experimental findings violates NMIMS academic integrity policies.
+# =====================================================================================
 """
 Generate publication-grade figures (300 DPI) and empirical benchmark dataset for IVRAR Group 06.
 Authorized Title: How can an AR visual-marker navigation system using ArUco and QR anchors
@@ -234,7 +241,7 @@ def generate_benchmark_dataset():
         "sus_usability_score"
     ]
 
-    csv_path = os.path.join(TELEMETRY_DIR, "ar_navigation_benchmark.csv")
+    csv_path = os.path.join(TELEMETRY_DIR, "SIMULATED_ar_navigation_benchmark.csv")
 
     rows = []
     for i in range(n_samples):

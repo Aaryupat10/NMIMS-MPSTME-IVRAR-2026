@@ -65,7 +65,7 @@ The platform comprises five interconnected software modules:
 2. **Mobile WebXR Route Navigator (`Assets/Scripts/MobileWebXRRouteNavigator.cs`, `S014 - Dev Garg`):** Client-side zero-install WebXR execution, visual-inertial camera pose tracking, dynamic 3D chevron guidance rendering, and floor transition notifications.
 3. **Campus Sustainability & Usability Analysis (`telemetry/kiosk_analytics_roi_eval.py`, `S021 - Nimitt Jain`):** Dimensionless cost parity modeling, paper waste elimination quantification, reception labor reclamation, and payback horizon calculations.
 4. **Empirical Benchmarking & Figure Pipeline (`telemetry/generate_paper_figures.py`, `S021 - Nimitt Jain`):** 50-participant synthetic trial generation, statistical validation ($t$-tests, effect sizes), and 300 DPI publication figure rendering.
-5. **Spatial Analytics & Wayfinding Telemetry Pipeline (`telemetry/kiosk_handoff_benchmark.csv`, `J032 - Husepas Marfatia`):** Spatial trajectory analytics, topological path optimization modeling, and empirical disorientation reduction benchmarks.
+5. **Spatial Analytics & Wayfinding Telemetry Pipeline (`telemetry/SIMULATED_kiosk_handoff_benchmark.csv`, `J032 - Husepas Marfatia`):** Spatial trajectory analytics, topological path optimization modeling, and empirical disorientation reduction benchmarks.
 
 ### Publication-Grade Figures (300 DPI)
 - `docs/figures/figure1_system_architecture.png`: Multi-tier system architecture showing Kiosk Layer, Optical Handoff Layer, and Mobile WebXR AR Layer.

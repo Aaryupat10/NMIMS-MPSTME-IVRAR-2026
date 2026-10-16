@@ -114,7 +114,7 @@ CollaborativeVR_Biometric_Master
 1. **Baseline Enrollment:** User manipulates 3D CAD models for 3 minutes; verify template vector compilation.
 2. **Continuous Verification:** Operate normally; confirm state remains `ContinuousVerified` with match score $> 0.80$.
 3. **Impostor Injection:** Trigger adversarial handover; verify that within 3.0 seconds, anomaly score surpasses threshold and avatar locks out.
-4. **Telemetry Verification:** Confirm that `biometric_authentication_benchmark.csv` logs all 50 evaluation trials.
+4. **Telemetry Verification:** Confirm that `SIMULATED_biometric_authentication_benchmark.csv` logs all 50 evaluation trials.
 
 ---
 

@@ -1,6 +1,25 @@
 # SVKM's NMIMS MPSTME
-## Introduction to Virtual Reality & Augmented Reality (IVRAR - Course Code: 702COI002)
+## Introduction to Virtual Reality & Augmented Reality (IVRAR - Course Code: 702TG0C003 / 702COI002)
 ### Problem-Based Learning (PBL) Research Cohort | Academic Year 2026–2027 (Semester V)
+
+---
+
+## 🚨 CAPSTONE SUBMISSION DIRECTIVE (AY 2026–27)
+
+| Field | Directive Specification |
+| :--- | :--- |
+| **Course** | Immersive Virtual Reality & Augmented Reality (IVRAR - 702TG0C003) |
+| **Capstone ICA Weightage** | **20 Marks** (10M SBL Studio Project + 5M DBL Usability Study + 5M Studio Showcase & Viva) |
+| **Submission Deadline** | **Monday, 26-Oct-2026, 23:59 IST** |
+| **Studio Showcase, Expo & Viva Voce** | **Saturday, 31-Oct-2026** (Live in-person Expo & individual oral defense) |
+| **Mandatory Individual Turn-In** | **Every student must individually attach their group's 4-page PDF dossier on MS Teams** to record individual ICA marks. |
+
+### 5-Step Capstone Submission Workflow:
+1. **Complete XR Application:** Finish Unity scenes, C# scripts in `Assets/Scripts/`, and ensure 0 GC allocation in `Update()`.
+2. **Empirical Human Testing ($N \ge 10$):** Conduct real user trials with non-clinical participants, log raw telemetry CSVs in `telemetry/`, and calculate genuine SUS / NASA-TLX scores. *(Starter benchmark CSVs are simulated references and cannot be reported as results).*
+3. **Publish GitHub Release:** Tag a release as `group-XX-v1.0` containing your runnable standalone executable (`.apk` for Meta Quest / Android AR, or `.exe` for PCVR).
+4. **Complete Technical Dossier:** Fill out your group's pre-filled `IVRAR_Group_XX_Technical_Dossier.docx` using Microsoft Word (selecting dropdowns), export to PDF, and commit **both** the `.docx` and `.pdf` to your group's `docs/` folder.
+5. **LinkedIn Video Showcase:** Post a 3-to-4-minute simulation-led walkthrough video on LinkedIn with all members speaking and tagged. Paste the post URL into Section 5 of your dossier.
 
 ---
 
@@ -59,7 +78,7 @@ For external evaluators, visiting faculty, and students reviewing project milest
 
 ## Master Group Directory & Research Project Index
 
-| Group # | Workspace Directory | Student Researchers & Roll Numbers | Authorized Research Title | Literature & Benchmarks |
+| Group # | Workspace Directory | Student Researchers & Roll Numbers | Authorized Research Title | Literature & Starter Benchmarks (Simulated Targets) |
 | :---: | :--- | :--- | :--- | :--- |
 | **Group 01** | [Group_01_Meahaan_Amogh_Harshit_Rannbir](./Group_01_Meahaan_Amogh_Harshit_Rannbir) | Meahaan Sharma (I066), Amogh Gupta (C034), Harshit Rai (N083), Rannbir Sachdeva (N087) | To what extent can real-time acoustic raycasting and spatial audio simulation in Unity VR enable residential AV integrators to optimize reverberation time (RT60) and sightline clearance according to CEDIA/CTA-RP22 standards? | 2 Seminal, 4 Recent (2022–2026) Verified DOIs; RT60 within +/-0.04s, kappa = 0.180 |
 | **Group 02** | [Group_02_Ranish_Hriday_Vedika_Medha](./Group_02_Ranish_Hriday_Vedika_Medha) | Ranish Devadiga (N024), Hriday Jain (N042), Vedika Kaki (N047), Medha Mishra (N062) | How can an immersive VR sensory-stress simulation improve target prioritization and reaction latency for defensive security trainees under simulated low-visibility nighttime conditions? | 2 Seminal, 4 Recent (2022–2026) Verified DOIs; -41.2% reaction latency, kappa = 0.170 |

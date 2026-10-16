@@ -118,7 +118,7 @@ Phishing_Simulation_Master
 2. **Scenario Presentation:** Present randomized emails; observe participant visual dwell allocation.
 3. **Decision Execution:** Participant either clicks embedded link or activates physical "Report Phish" alarm.
 4. **Longitudinal Retest:** Repeat evaluation after 14 days without intervening refresher prompts.
-5. **Telemetry Export:** Verify that `phishing_simulation_benchmark.csv` logs all 50 participant records.
+5. **Telemetry Export:** Verify that `SIMULATED_phishing_simulation_benchmark.csv` logs all 50 participant records.
 
 ---
 

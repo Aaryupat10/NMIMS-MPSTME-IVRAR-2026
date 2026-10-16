@@ -10,7 +10,7 @@ using UnityEngine;
 public class RT60TelemetryLogger : MonoBehaviour
 {
     [Header("Telemetry Configuration")]
-    public string outputFilename = "telemetry/acoustic_benchmark_data.csv";
+    public string outputFilename = "telemetry/acoustic_real_trials.csv";
     public float timeResolutionMs = 5.0f;
 
     // Energy decay buffers

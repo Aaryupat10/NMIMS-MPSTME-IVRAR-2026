@@ -63,7 +63,7 @@ SVKM's NMIMS MPSTME conveys sincere appreciation and heartfelt gratitude to Sama
 The platform comprises four interconnected software modules:
 1. **Pretext Engine & Scenario State Machine (`Assets/Scripts/TailgatingBreachManager.cs`, `B069 - Samarth Pande`):** Coordinates penetration pretexts (courier, executive, technician), dialogue selection trees, turnstile lock/unlock relays, and timed decision gates.
 2. **Immersive XR Corporate Facility (`B148 - Ishan Choudhary`):** High-fidelity lobby environment in Unity 2022.3 LTS featuring glass security turnstiles, RFID card scanners, autonomous NPC avatars with Mecanim animation blend trees, and 3D spatialized voice audio prompts.
-3. **Spatial Telemetry & Gaze Core (`Assets/Scripts/PhysicalSecurityTelemetryLogger.cs`, `B155 - Aarush Mishra`):** 20 Hz continuous head orientation tracking, raycast credential inspection dwell time, interpersonal proximity measurement, and automated CSV logging to `telemetry/security_audit_benchmark.csv`.
+3. **Spatial Telemetry & Gaze Core (`Assets/Scripts/PhysicalSecurityTelemetryLogger.cs`, `B155 - Aarush Mishra`):** 20 Hz continuous head orientation tracking, raycast credential inspection dwell time, interpersonal proximity measurement, and automated CSV logging to `telemetry/security_audit_real_trials.csv`.
 4. **Security QA, Compliance Scoring & Technoeconomics (`telemetry/security_audit_eval.py`, `K031 - Sachi Kumar`):** Multi-class confusion matrix formulation, ISO/IEC 27001 Control A.7 scoring, System Usability Scale (SUS) assessment, and enterprise labor reallocation modeling.
 
 ### Publication-Grade Figures (300 DPI)
