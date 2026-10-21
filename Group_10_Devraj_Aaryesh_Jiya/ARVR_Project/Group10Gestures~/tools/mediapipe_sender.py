@@ -121,11 +121,15 @@ def main():
         print(f"[Error] Could not open camera {args.camera}. Please verify connection.")
         return
 
+    # Latency tweaks (set the format BEFORE the resolution):
+    cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))  # compressed stream: more fps / less delay on most webcams
+    cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)                            # don't queue stale frames
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
     cap.set(cv2.CAP_PROP_FPS, 60)
 
     fps = 0.0
+    proc_ms_avg = 0.0
     frame_count = 0
     start_time = time.time()
     packet_count = 0
@@ -146,6 +150,7 @@ def main():
             current_time_ms = int(time.time() * 1000)
 
             hands_data = []
+            proc_start = time.perf_counter()
 
             if api_type == "tasks":
                 mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_frame)
@@ -188,6 +193,10 @@ def main():
                         wy = int(lm_list[0][1] * frame.shape[0])
                         cv2.putText(frame, label, (wx - 20, wy - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
 
+            # How long detection + landmark conversion took (part of the latency Unity reports)
+            proc_ms = (time.perf_counter() - proc_start) * 1000.0
+            proc_ms_avg = proc_ms if proc_ms_avg == 0.0 else 0.9 * proc_ms_avg + 0.1 * proc_ms
+
             # Send payload via UDP
             payload = {
                 "t": current_time_ms,
@@ -209,10 +218,10 @@ def main():
                 start_time = time.time()
 
             # Render overlay information
-            cv2.rectangle(frame, (10, 10), (320, 85), (20, 20, 20), -1)
-            cv2.rectangle(frame, (10, 10), (320, 85), (80, 80, 80), 1)
+            cv2.rectangle(frame, (10, 10), (420, 85), (20, 20, 20), -1)
+            cv2.rectangle(frame, (10, 10), (420, 85), (80, 80, 80), 1)
             cv2.putText(frame, f"IVRAR 2026 - Group 10 Sender", (18, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
-            cv2.putText(frame, f"FPS: {fps:.1f} | Hands: {len(hands_data)}", (18, 52), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1)
+            cv2.putText(frame, f"FPS: {fps:.1f} | Hands: {len(hands_data)} | Detect: {proc_ms_avg:.0f} ms", (18, 52), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1)
             cv2.putText(frame, f"Packets: {packet_count} -> {args.host}:{args.port}", (18, 74), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (180, 180, 180), 1)
 
             cv2.imshow("Group 10 - MediaPipe Hand Tracking (Press 'q' to quit)", frame)

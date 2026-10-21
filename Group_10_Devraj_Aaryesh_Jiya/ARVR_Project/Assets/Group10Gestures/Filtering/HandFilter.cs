@@ -24,8 +24,11 @@ namespace Group10Gestures.Filtering
 
         private void Awake()
         {
-            float minCutoff = _config != null ? _config.filterMinCutoff : 1.0f;
-            float beta = _config != null ? _config.filterBeta : 0.005f;
+            // Fallback values (this component is added at runtime, so _config is normally null).
+            // beta is in 1/(m/s): with joint positions in metres a value of 0.005 never raises the cutoff,
+            // which made the hand feel ~0.5 s late. 1.5 Hz at rest / beta 25 gives ~9 Hz cutoff at 0.3 m/s.
+            float minCutoff = _config != null ? _config.filterMinCutoff : 1.5f;
+            float beta = _config != null ? _config.filterBeta : 25.0f;
             float dCutoff = _config != null ? _config.filterDCutoff : 1.0f;
 
             for (int i = 0; i < 21; i++)
