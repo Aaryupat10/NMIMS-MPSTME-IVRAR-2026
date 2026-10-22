@@ -28,10 +28,12 @@ namespace Group10Gestures.Providers
         private static readonly OVRSkeleton.BoneId[] s_MediaPipeToOvrBone = new OVRSkeleton.BoneId[21]
         {
             OVRSkeleton.BoneId.Hand_WristRoot,  // 0: Wrist
-            OVRSkeleton.BoneId.Hand_Thumb0,      // 1: Thumb CMC
-            OVRSkeleton.BoneId.Hand_Thumb1,      // 2: Thumb MCP
-            OVRSkeleton.BoneId.Hand_Thumb2,      // 3: Thumb IP
-            OVRSkeleton.BoneId.Hand_Thumb3,      // 4: Thumb Tip (or Hand_ThumbTip)
+            // Meta bone transforms sit at the START of each bone, so the thumb is shifted one step toward the tip:
+            // Thumb1 = metacarpal start (CMC), Thumb2 = proximal start (MCP), Thumb3 = distal start (IP), ThumbTip = tip.
+            OVRSkeleton.BoneId.Hand_Thumb1,      // 1: Thumb CMC
+            OVRSkeleton.BoneId.Hand_Thumb2,      // 2: Thumb MCP
+            OVRSkeleton.BoneId.Hand_Thumb3,      // 3: Thumb IP
+            OVRSkeleton.BoneId.Hand_ThumbTip,    // 4: Thumb Tip (needed for an accurate thumb-index pinch distance)
             OVRSkeleton.BoneId.Hand_Index1,      // 5: Index MCP
             OVRSkeleton.BoneId.Hand_Index2,      // 6: Index PIP
             OVRSkeleton.BoneId.Hand_Index3,      // 7: Index DIP

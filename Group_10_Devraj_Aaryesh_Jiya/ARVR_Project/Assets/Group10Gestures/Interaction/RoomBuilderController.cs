@@ -99,6 +99,21 @@ namespace Group10Gestures.Interaction
         public InteractionMode Mode => _mode;
         public int CornerCount => _corners.Count;
         public int RoomCount => _rooms.Count;
+
+        // ---- read-only text/state for the headset guide panel (XRGuidePanel) ----
+        public Handedness Dominant => _dominant;
+        public string GuideText => GetGuide();
+        public float ModeHoldProgress => _modeHoldTime > 0f ? Mathf.Clamp01(_pointHold / _modeHoldTime) : 0f;
+        public string ToastText => Time.unscaledTime < _toastUntil ? _toast : "";
+        public string StatusText
+        {
+            get
+            {
+                string modeName = _mode == InteractionMode.Edit ? "EDIT (draw rooms)"
+                                : _mode == InteractionMode.Color ? "COLOR (paint rooms)" : "VIEW (zoom / rotate)";
+                return "MODE: " + modeName + "   |   Rooms: " + _rooms.Count + "   Corners: " + _corners.Count;
+            }
+        }
         public float ExtrudeHeight => _extrudeHeight;
 
         public event Action<int> CornerPlaced;
@@ -144,6 +159,8 @@ namespace Group10Gestures.Interaction
         private InteractionMode _mode = InteractionMode.Edit;
         private AppMode _lastGmMode;
         private bool _initialized;
+        [SerializeField] private bool _disableBothPalmsSwitchInXR = true; // both open palms flips Edit/Color; too easy to trigger in a headset
+        private bool _bothPalmsHooked = true;
         private float _pointHold;
         private float _lastModeSwitch = -10f;
 
@@ -478,6 +495,17 @@ namespace Group10Gestures.Interaction
             if (_hud == null) _hud = FindAnyObjectByType<HUDController>();
             if (_cam == null) _cam = Camera.main;
             if (_filter == null || _rec == null || _cam == null || _cursorGo == null) return;
+
+            // GameManager flips Edit/Color when both palms are open. With a headset both hands are often open at once,
+            // which makes the mode flicker, so that shortcut is switched off for the Meta XR condition.
+            // Holding the LEFT index finger up for 1 s still changes mode in both conditions.
+            bool wantBothPalms = IsWebcam || !_disableBothPalmsSwitchInXR;
+            if (wantBothPalms != _bothPalmsHooked)
+            {
+                if (wantBothPalms) _rec.OnBothHandsOpenTriggered += gm.ToggleMode;
+                else _rec.OnBothHandsOpenTriggered -= gm.ToggleMode;
+                _bothPalmsHooked = wantBothPalms;
+            }
 
             if (!_initialized)
             {
@@ -1141,17 +1169,21 @@ namespace Group10Gestures.Interaction
 
         // ------------------------------------------------------------------ on-screen guidance (desktop)
         /// <summary>One plain-language instruction telling the user exactly what to do next.</summary>
+        private string KeyHint(string s) { return IsWebcam ? s : ""; }
+
         private string GetGuide()
         {
             if (_mode == InteractionMode.View)
             {
-                if (_rooms.Count == 0) return "Nothing to view yet. Hold your LEFT index finger up (or press M) to go back to EDIT and build a room.";
+                if (_rooms.Count == 0) return "Nothing to view yet. Hold your LEFT index finger up" + KeyHint(" (or press M)") + " to go back to EDIT and build a room.";
                 return "VIEW: pinch with BOTH hands and move them apart / together to zoom (now " +
                        Mathf.RoundToInt(_viewScale * 100f) + "%). Pinch with ONE hand and drag sideways to rotate. LEFT FIST resets.";
             }
 
             if (!_handTracked)
-                return "Show your " + _dominant.ToString().ToUpper() + " hand to the webcam.";
+                return IsWebcam
+                    ? "Show your " + _dominant.ToString().ToUpper() + " hand to the webcam."
+                    : "Bring your " + _dominant.ToString().ToUpper() + " hand up in front of you so the headset can see it.";
 
             if (_mode == InteractionMode.Edit)
             {
@@ -1159,18 +1191,20 @@ namespace Group10Gestures.Interaction
                     return "STEP 2/4: Raise or lower your hand to set the wall height (" +
                            _extrudeHeight.ToString("F1") + " m), then PINCH to confirm.";
                 if (_corners.Count == 0 && _rooms.Count > 0)
-                    return "STEP 3/4: Room built! Hold your LEFT index finger up for 1 s (or press M) to go to COLOR mode. PINCH to start another room.";
+                    return "STEP 3/4: Room built! Hold your LEFT index finger up for 1 s" + KeyHint(" (or press M)") + " to go to COLOR mode. PINCH to start another room.";
                 if (_corners.Count == 0)
                     return "STEP 1/4: Move your hand to aim the white dot on the grid (hand up = farther away). PINCH thumb + index to mark the first corner.";
                 if (_corners.Count < 3)
                     return "STEP 1/4: Aim and PINCH for the next corner (" + _corners.Count + " placed, need at least 3).";
                 if (_nearFirst)
                     return "The dot is on the FIRST corner. PINCH now to CLOSE the room.";
-                return "STEP 1/4: Add more corners, or move onto the big GREEN dot (it snaps) and PINCH to close. LEFT THUMBS-UP or Space also closes.";
+                return "STEP 1/4: Add more corners, or move onto the big GREEN dot (it snaps) and PINCH to close. LEFT THUMBS-UP" + KeyHint(" or Space") + " also closes.";
             }
 
             if (_rooms.Count == 0)
-                return "There is no room to paint yet. Press M (or hold LEFT index finger up) until you are back in EDIT mode.";
+                return IsWebcam
+                    ? "There is no room to paint yet. Press M (or hold LEFT index finger up) until you are back in EDIT mode."
+                    : "There is no room to paint yet. Hold your LEFT index finger up until you are back in EDIT mode.";
             if (_hoverRoom == null)
                 return "STEP 3/4: Hold your index fingertip on a colour until it grows. Then move the white dot onto a room (it gets outlined).";
             return "STEP 4/4: The outlined room is selected. PINCH to paint it with the chosen colour.";

@@ -19,7 +19,8 @@ namespace Group10Gestures.Interaction
             var go = new GameObject("Group10_Interaction");
             go.AddComponent<RoomBuilderController>();
             go.AddComponent<TrialLogger>();
-            Debug.Log("[Group10] Interaction layer started (room drawing + trial logger).");
+            go.AddComponent<XRGuidePanel>(); // headset guide (only shows while the Meta XR provider is active)
+            Debug.Log("[Group10] Interaction layer started (room drawing + trial logger + headset guide).");
         }
     }
 }
