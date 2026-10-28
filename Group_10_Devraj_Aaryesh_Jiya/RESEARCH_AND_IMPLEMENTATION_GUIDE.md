@@ -53,20 +53,21 @@ Aaryesh also edited two teammates' files during integration (`HandFilter.cs` fil
 2. **Unity:** open `ARVR_Project` in Unity 6000.5.8f1, load scene `Group10_Main`. Turn the Meta XR Simulator window off for webcam mode.
 3. **Source switch:** F1 toggles Webcam / Meta XR.
 4. **Sessions:** F2 start a recorded trial, F3 end and save as incomplete, F4 next participant. A recorded trial ends automatically when the finished room is painted. Ask each participant to build a structure of their own design; note what they built and where they struggled, then give SUS and NASA-TLX.
+   *As run on 27 Oct 2026 (AR/VR Lab, 10 users, Quest 2 standalone APK): the headset build has no keyboard, so F2 could not start the logger and no trial CSV exists; sessions were video-recorded and SUS / NASA-TLX were not collected. To record trials with the logger, run the PC / Editor build with the keyboard attached.*
 5. **Headset:** Quest 2 via Quest Link for PC-VR, or install `Group10_HandRoomBuilder_v1.0.apk` for standalone Meta XR hand tracking. Cast the headset view to the laptop with Meta Quest Developer Hub for recording.
 
 ## 4. Analysis Workflow
-1. Collect `TrialData/g10_trials.csv`, the SUS / NASA-TLX sheets, comments and observer notes from real participants.
-2. Copy the CSV into the repo `telemetry/` folder.
+1. Collect `TrialData/g10_trials.csv`, the SUS / NASA-TLX sheets, comments and observer notes from real participants. *For the 27 Oct sessions only the 10 videos exist: review them, count unaided completions and tally the breakdowns (missed or double pinches, tracking loss, mode confusion).*
+2. If a CSV is produced later, copy it into the repo `telemetry/` folder.
 3. Update `telemetry/generate_paper_figures.py` and the calculators to read this data (they currently read the `SIMULATED_*` files). Report SUS and TLX against the H1 and H2 benchmarks, plus completion counts, breakdown themes and latency / fps.
 4. Re-plot, then regenerate `docs/figures/`.
 
 ## 5. Verification Checklist
 - [ ] Every number in the dossier, README and paper comes from the real CSV or questionnaires.
 - [ ] No `SIMULATED_*` file is cited as evidence.
-- [ ] At least 10 real participants, consent forms held.
+- [x] 10 real participants tested on 27 Oct 2026 (videos kept); [ ] consent forms held; [ ] SUS / NASA-TLX not collected, so no usability or workload claim.
 - [ ] Six (plus method) references re-checked against publisher pages.
 - [ ] Figures 1-3 redrawn for the new pipeline.
-- [ ] `TEAM_ROSTER.json` has all three GitHub usernames and the LinkedIn URL.
-- [ ] Release `group-10-v1.0` contains the runnable build; no build is committed to Git history.
+- [x] `TEAM_ROSTER.json` has all three GitHub usernames and the LinkedIn URL.
+- [x] Release `group-10-v1.0` contains the Quest 2 APK; no build is committed to Git history.
 - [ ] Each member can explain their own code on a whiteboard in 30 seconds.

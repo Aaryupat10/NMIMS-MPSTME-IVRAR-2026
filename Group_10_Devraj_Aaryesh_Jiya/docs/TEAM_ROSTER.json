@@ -13,7 +13,8 @@
       "name": "Devraj Ghumare",
       "role": "Computer Vision Pipeline Lead",
       "assigned_branch": "feat/r014-computer-vision-pipe",
-      "github_username": ""
+      "github_username": "devraj2712",
+      "agreed_effort_pct": 33
     },
     {
       "roll_no": "R045",
@@ -21,7 +22,8 @@
       "name": "Aaryesh Pathare",
       "role": "XR Systems Architect",
       "assigned_branch": "feat/r045-xr-systems-architect",
-      "github_username": "Aaryupat10"
+      "github_username": "Aaryupat10",
+      "agreed_effort_pct": 34
     },
     {
       "roll_no": "R054",
@@ -29,7 +31,8 @@
       "name": "Jiya Saxena",
       "role": "Gesture Recognition Specialist",
       "assigned_branch": "feat/r054-gesture-recognition-",
-      "github_username": ""
+      "github_username": "JiyaSaxena",
+      "agreed_effort_pct": 33
     }
   ],
   "foundational_papers": [
@@ -125,10 +128,26 @@
   "domain": "Controller-Free Architectural Room Authoring in Unity VR with Markerless MediaPipe Hand Tracking (Webcam and Meta Quest 2)",
   "project_showcase": {
     "platform": "LinkedIn Video",
-    "linkedin_url": "PENDING_SUBMISSION",
+    "linkedin_url": "https://lnkd.in/p/dtxyJCs7",
     "video_poster_path": "docs/figures/video_poster.png",
-    "video_duration_target": "3-4 minutes",
-    "submission_status": "PENDING",
-    "submission_instructions": "Paste your published LinkedIn post URL into 'linkedin_url' and submit a Pull Request"
+    "submission_status": "SUBMITTED",
+    "video_duration": "03:26"
+  },
+  "release": {
+    "tag": "group-10-v1.0",
+    "url": "https://github.com/Aaryupat10/NMIMS-MPSTME-IVRAR-2026/releases/tag/group-10-v1.0",
+    "asset": "Group10_HandRoomBuilder_v1.0.apk",
+    "final_code_commit": "03c7d14b492c8c971ec65694eda705cf333b0931"
+  },
+  "evaluation": {
+    "participants": 10,
+    "date": "2026-10-27",
+    "place": "AR/VR Lab",
+    "build": "Quest 2 standalone APK (Meta XR hand tracking)",
+    "task": "open-ended room building",
+    "evidence": "video recordings of 10 sessions",
+    "sus_collected": false,
+    "nasa_tlx_collected": false,
+    "trial_csv": "not recorded (trial logger needs a keyboard; not available in the Quest build)"
   }
 }

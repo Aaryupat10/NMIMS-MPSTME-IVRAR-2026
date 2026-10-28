@@ -29,6 +29,8 @@ Prior work has shown hand-based sketching in VR and hand tracking as a controlle
 - **H2:** Perceived workload (raw NASA-TLX) is at or below the scale midpoint.
 - **H3:** Users complete a structure of their own design without assistance; the completion rate is reported as [n]/[N].
 
+> **Status after the user sessions:** SUS and NASA-TLX were not collected, so **RQ1, RQ2, H1 and H2 were not tested**. The 10 recorded sessions support **RQ3 and H3** (completion and breakdowns, counted from the videos). RQ4 rests on development-time HUD observations only (see Results).
+
 ### Why it is harder than it looks
 - **2D to 3D.** A webcam gives a flat image, but placing a wall corner needs a position in 3D room space, and the camera frame has to be aligned with the headset's frame.
 - **A pinch has no click.** Thumb-index distance is noisy, so one pinch can fire twice or not at all. We normalise by palm size, use hysteresis (enter 0.35, exit 0.50) and a 3-frame debounce.
@@ -71,32 +73,52 @@ Meta Quest 2 hand tracking (Meta XR SDK) -> MetaXRHandProvider ------> HandProvi
 
 ---
 
+## Build and Release
+| Item | Value |
+|---|---|
+| Release | [`group-10-v1.0`](https://github.com/Aaryupat10/NMIMS-MPSTME-IVRAR-2026/releases/tag/group-10-v1.0) |
+| Quest 2 build | `Group10_HandRoomBuilder_v1.0.apk` (standalone, Meta XR hand tracking; install with Meta Quest Developer Hub) |
+| Final code commit | `03c7d14b492c8c971ec65694eda705cf333b0931` |
+| Source | `ARVR_Project/` (Unity 6000.5.8f1). No build is committed to Git history; builds ship only through the Release. |
+
+The webcam route needs the PC, the Python sender and Unity or a PC build; it is not part of the Quest APK.
+
+---
+
 ## Evaluation Protocol
-- **Participants:** first-time users, minimum N = 10 (aim 12), consent form signed by each.
-- **Task:** open-ended. Each participant is asked to build a structure of their own design in VR with their hands. There is no fixed target size.
-- **Data collected:** SUS and NASA-TLX after the session; `TrialData/g10_trials.csv` (time, completion, corners placed, undo count, rooms deleted, tracking-lost time, fps, webcam latency); short open comments; notes on what each participant built and where they struggled.
-- **Not used for this task:** the `area_error_pct` and `height_error_pct` columns, which only apply to a fixed target.
-- **Analysis:** descriptive statistics (mean, SD, median, IQR); SUS and TLX against the benchmarks in H1 and H2 (one-sample Wilcoxon signed-rank); completion counts; themes from comments. With N of about 10-12 all inference is exploratory.
-- **RQ4:** latency (Python timestamp to Unity receive, same PC clock) is webcam-only pipeline latency, not motion-to-photon. Outcomes are also listed per tracking source.
+### As carried out (27 Oct 2026, AR/VR Lab)
+- **Participants:** 10 first-time users.
+- **Build:** the standalone Quest 2 build (`Group10_HandRoomBuilder_v1.0.apk`, Meta XR hand tracking).
+- **Task:** open-ended. Each participant built a structure of their own design in VR with their hands; there was no fixed target size.
+- **Evidence kept:** video recordings of the 10 sessions.
+- **Not collected:** the trial logger (`TrialData/g10_trials.csv`) starts only from the F2 key, and there is no keyboard in the headset build, so no per-trial CSV exists. SUS and NASA-TLX were not collected during the sessions.
+- **What the videos can support:** how many participants completed a structure unaided (H3) and which interaction breakdowns occurred (RQ3), reviewed and counted by the group.
+
+### Planned protocol (not fully executed)
+- SUS and NASA-TLX after each session; `g10_trials.csv` with time, completion, corners placed, undo count, rooms deleted, tracking-lost time, fps and webcam latency; short comments; consent forms (confirm they are held).
+- Analysis: descriptive statistics (mean, SD, median, IQR); SUS and TLX against the H1 and H2 benchmarks (one-sample Wilcoxon signed-rank); completion counts; themes from comments. With N of about 10 all inference would be exploratory.
+- `area_error_pct` and `height_error_pct` columns do not apply to the open-ended task.
+- Latency (Python timestamp to Unity receive, same PC clock) is webcam pipeline latency only, not motion-to-photon.
 
 ## Results
 > **To be filled from the real data only.** The earlier figures (12.1 ms latency, 94.6 percent accuracy, 265.4 s vs 218.6 s, N = 50) belonged to the dropped colour-marker topic and came from generated sample data. They are not results of this project and must not be quoted.
 
 | Measure | Value |
 |---|---|
-| Participants (N) | [fill] |
-| Completed a structure unaided | [n] / [N] |
-| SUS (mean, SD, median) | [fill] |
-| NASA-TLX raw (mean, SD) | [fill] |
-| Webcam pipeline latency (mean / p95 ms) | [fill] |
-| Webcam mean fps / min fps | [fill] |
-| Most common breakdowns (from comments and logs) | [fill] |
+| Participants (N) | 10 first-time users (27 Oct 2026, AR/VR Lab) |
+| Completed a structure unaided | [n] / 10, to be counted from the session videos |
+| SUS (mean, SD, median) | Not collected |
+| NASA-TLX raw (mean, SD) | Not collected |
+| Webcam pipeline latency and fps (logged) | Not logged. Development observations only (HUD, not a CSV): 60-100 ms and about 15 fps in dim light before fixes, about 30 fps after the lighting fix |
+| Most common breakdowns | [fill from the video review] |
 
 ## Known Limitations
 - Webcam tracking depends on lighting and camera frame rate.
 - Pinch reliability differed between users during early testing; the cause is still under investigation.
 - Latency reported is pipeline latency only.
 - Small N and student participants limit generalisation.
+- The 10 user sessions were video-recorded only. No SUS, NASA-TLX or logged trial data exist, so usability and workload claims cannot be made.
+- The trial logger needs a keyboard (F2) and did not run in the Quest standalone build.
 - Left/right hand labels from the sender need re-checking after the final script edits.
 
 ---
@@ -105,11 +127,13 @@ Meta Quest 2 hand tracking (Meta XR SDK) -> MetaXRHandProvider ------> HandProvi
 See `docs/LITERATURE_REVIEW_AND_FOUNDATIONAL_PAPERS.md`. **Each DOI and author list must be re-checked on the publisher page before submission.** Closest prior work to cite and distinguish: hand-tracking sketching in VR for architectural design (TUM master's thesis) and Sketching with Hands (KAIST, UIST 2016).
 
 ## Team
-| Roll No | Name | Role | Branch |
-|---|---|---|---|
-| R014 | Devraj Ghumare | Computer Vision Pipeline Lead | `feat/r014-computer-vision-pipe` |
-| R045 | Aaryesh Pathare | XR Systems Architect | `feat/r045-xr-systems-architect` |
-| R054 | Jiya Saxena | Gesture Recognition Specialist | `feat/r054-gesture-recognition-` |
+| Roll No | Name | Role | GitHub | Agreed effort | Branch |
+|---|---|---|---|---|---|
+| R014 | Devraj Ghumare | Computer Vision Pipeline Lead | `devraj2712` | 33 % | `feat/r014-computer-vision-pipe` |
+| R045 | Aaryesh Pathare | XR Systems Architect | `Aaryupat10` | 34 % | `feat/r045-xr-systems-architect` (final work merged to `main` via `feat/r045-final-submission`) |
+| R054 | Jiya Saxena | Gesture Recognition Specialist | `JiyaSaxena` | 33 % | `feat/r054-gesture-recognition-` |
+
+Devraj's webcam pipeline was developed and tested on his own laptop; the files reached Git through R045's commits.
 
 ## Project Demonstration (LinkedIn)
-Video: *URL to be added after posting.* Target length 3-4 minutes. The URL goes in `docs/TEAM_ROSTER.json` (`linkedin_url`), dossier Section 5, and here.
+Video: <https://lnkd.in/p/dtxyJCs7> (3 min 26 s, all three members appear). The URL is also in `docs/TEAM_ROSTER.json` (`linkedin_url`) and dossier Section 5.

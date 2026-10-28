@@ -4,12 +4,14 @@
 ### Research Question
 **How do first-time users experience building three-dimensional architectural structures (rooms) in VR using bare-hand gestures alone, in terms of perceived usability, workload and interaction breakdowns?**
 
-> Rule for this document: every number in Sections IV-V must come from the real trial CSV, the SUS / NASA-TLX sheets and participant comments. Nothing from `SIMULATED_*` files or the dropped colour-marker topic may appear.
+> Rule for this document: every number in Sections IV-V must come from real data: the session videos, and any CSV or questionnaire that exists. Nothing from `SIMULATED_*` files or the dropped colour-marker topic may appear.
+>
+> **Data actually collected (27 Oct 2026, AR/VR Lab):** 10 first-time users on the Quest 2 standalone build, video-recorded. No trial CSV (logger needs a keyboard) and no SUS / NASA-TLX. Write Sections IV-V around what the videos support (completion, breakdowns) and state the missing measures as a limitation.
 
 ---
 
 ### Abstract (fill the brackets last)
-Building architectural spaces in VR normally relies on handheld controllers, whose trigger gives an unambiguous confirmation signal. Without them, intent must be inferred from noisy hand-pose estimates, with no tactile click, no direct depth from a flat camera image, and a trade-off between jitter and lag. We built a controller-free room-authoring system: a webcam feeds the MediaPipe Hand Landmarker, 21 landmarks per hand are streamed to Unity over UDP, smoothed with a One Euro filter and classified by a geometric gesture recogniser that drives a pinch-based tool for placing floor corners, closing the room, raising walls, editing and colouring. The same interaction also runs on Meta Quest 2 built-in hand tracking. [N] first-time users built a structure of their own design and rated the system. Mean SUS was [X] and raw NASA-TLX [Y]; [n]/[N] completed a structure unaided. Webcam pipeline latency averaged [L] ms (95th percentile [P] ms). The most frequent breakdowns were [list]. We discuss design lessons and limits.
+Building architectural spaces in VR normally relies on handheld controllers, whose trigger gives an unambiguous confirmation signal. Without them, intent must be inferred from noisy hand-pose estimates, with no tactile click, no direct depth from a flat camera image, and a trade-off between jitter and lag. We built a controller-free room-authoring system: a webcam feeds the MediaPipe Hand Landmarker, 21 landmarks per hand are streamed to Unity over UDP, smoothed with a One Euro filter and classified by a geometric gesture recogniser that drives a pinch-based tool for placing floor corners, closing the room, raising walls, editing and colouring. The same interaction also runs on Meta Quest 2 built-in hand tracking. Ten first-time users built a structure of their own design on a standalone Quest 2 build while their sessions were video-recorded; [n]/10 completed a structure unaided, and the most frequent breakdowns were [list from video review]. Usability and workload questionnaires were not collected, so we report observed completion and failure modes only. We discuss design lessons and limits.
 
 ### Author Contribution Matrix
 | Roll | Name | Specialisation | Manuscript ownership | Branch |
@@ -43,20 +45,21 @@ Building architectural spaces in VR normally relies on handheld controllers, who
 - **Figure 1:** system diagram (redraw; the existing `figure1_system_architecture.png` shows the dropped topic).
 
 ### Section IV: Evaluation
-- **Participants:** [N] first-time users (minimum 10), consent held.
+- **Participants:** 10 first-time users, AR/VR Lab, 27 Oct 2026 (confirm consent forms are held).
+- **Build:** Quest 2 standalone APK, Meta XR hand tracking.
 - **Task:** open-ended; each participant builds a structure of their own design with their hands.
-- **Measures:** SUS, raw NASA-TLX, completion, time, corners placed, undo count, rooms deleted, tracking-lost time, fps, webcam latency (mean and p95), short open comments, observer notes on what was built and where users struggled.
-- **Analysis:** descriptive statistics; SUS and TLX against the H1 and H2 benchmarks (one-sample Wilcoxon signed-rank); completion counts; thematic grouping of comments; per-source breakdown for RQ4. All inference exploratory.
-- **Figures:** SUS and TLX distributions; breakdown frequencies; latency and fps (regenerate from the real data).
+- **Measures actually available:** video of each session (completion, what was built, breakdowns observed). Not collected: SUS, NASA-TLX, logged time / corners / undo counts, webcam latency (the trial logger needs a keyboard and did not run in the headset build).
+- **Analysis:** completion counts and a tally of breakdown types from the videos; thematic notes. All inference exploratory. H1, H2 and the SUS / TLX parts of RQ1 and RQ2 are reported as untested.
+- **Figures:** breakdown frequencies from the video review; a still from a session. Development-time HUD observations (60-100 ms, about 15 fps in dim light, about 30 fps after the lighting fix) may be mentioned as informal observations, not as results.
 
 ### Section V: Usability, Workload and Breakdowns
-- Report SUS and TLX with per-participant values.
+- Report the completion count and what participants built. State clearly that SUS and NASA-TLX were not collected.
 - Breakdown analysis: missed or double pinches, tracking loss, lighting and frame-rate effects, left/right label issues, users for whom pinch failed.
 - **AI-assisted errors caught (dossier 5.1):** an unrealistic sub-15 ms latency claim; a filter beta far too low (hand felt late); frame-based pinch debounce; wrong Unity version in the old docs.
 
 ### Section VI: Conclusion and Future Work
-- Answer RQ1-RQ4 from the data and state limits (small N, student participants, pipeline-only latency).
-- Future work: depth estimation for the webcam route, per-user pinch calibration, larger and more varied participants, comparison with controller-based tools.
+- Answer RQ3 (and H3) from the videos, state that RQ1, RQ2 and RQ4 could not be answered with the data collected, and give the limits (small N, student participants, no questionnaires, no logged latency).
+- Future work: collect SUS and NASA-TLX, log trials in the headset build (replace the keyboard trigger with an in-headset start gesture), depth estimation for the webcam route, per-user pinch calibration, larger and more varied participants, comparison with controller-based tools.
 
 ---
 
