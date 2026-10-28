@@ -52,6 +52,34 @@ namespace Group10Gestures.Providers
             OVRSkeleton.BoneId.Hand_PinkyTip     // 20: Pinky Tip
         };
 
+        // OpenXR-style skeleton (26 joints). Quest delivers this when OVRSkeleton runs as XRHandLeft / XRHandRight.
+        // The XRHand_* ids reuse the same numbers as the Hand_* ids but mean DIFFERENT bones, so the table above
+        // must not be used for it. Joint positions here are at the joint centres, so the mapping is direct.
+        private static readonly OVRSkeleton.BoneId[] s_MediaPipeToXrBone = new OVRSkeleton.BoneId[21]
+        {
+            OVRSkeleton.BoneId.XRHand_Wrist,               // 0: Wrist
+            OVRSkeleton.BoneId.XRHand_ThumbMetacarpal,     // 1: Thumb CMC
+            OVRSkeleton.BoneId.XRHand_ThumbProximal,       // 2: Thumb MCP
+            OVRSkeleton.BoneId.XRHand_ThumbDistal,         // 3: Thumb IP
+            OVRSkeleton.BoneId.XRHand_ThumbTip,            // 4: Thumb Tip
+            OVRSkeleton.BoneId.XRHand_IndexProximal,       // 5: Index MCP
+            OVRSkeleton.BoneId.XRHand_IndexIntermediate,   // 6: Index PIP
+            OVRSkeleton.BoneId.XRHand_IndexDistal,         // 7: Index DIP
+            OVRSkeleton.BoneId.XRHand_IndexTip,            // 8: Index Tip
+            OVRSkeleton.BoneId.XRHand_MiddleProximal,      // 9: Middle MCP
+            OVRSkeleton.BoneId.XRHand_MiddleIntermediate,  // 10: Middle PIP
+            OVRSkeleton.BoneId.XRHand_MiddleDistal,        // 11: Middle DIP
+            OVRSkeleton.BoneId.XRHand_MiddleTip,           // 12: Middle Tip
+            OVRSkeleton.BoneId.XRHand_RingProximal,        // 13: Ring MCP
+            OVRSkeleton.BoneId.XRHand_RingIntermediate,    // 14: Ring PIP
+            OVRSkeleton.BoneId.XRHand_RingDistal,          // 15: Ring DIP
+            OVRSkeleton.BoneId.XRHand_RingTip,             // 16: Ring Tip
+            OVRSkeleton.BoneId.XRHand_LittleProximal,      // 17: Pinky MCP
+            OVRSkeleton.BoneId.XRHand_LittleIntermediate,  // 18: Pinky PIP
+            OVRSkeleton.BoneId.XRHand_LittleDistal,        // 19: Pinky DIP
+            OVRSkeleton.BoneId.XRHand_LittleTip            // 20: Pinky Tip
+        };
+
         private Dictionary<OVRSkeleton.BoneId, Transform> _leftBoneMap = new Dictionary<OVRSkeleton.BoneId, Transform>();
         private Dictionary<OVRSkeleton.BoneId, Transform> _rightBoneMap = new Dictionary<OVRSkeleton.BoneId, Transform>();
 
@@ -87,8 +115,9 @@ namespace Group10Gestures.Providers
                 OVRSkeleton[] skeletons = Object.FindObjectsByType<OVRSkeleton>(FindObjectsInactive.Include);
                 foreach (var s in skeletons)
                 {
-                    if (s.GetSkeletonType() == OVRSkeleton.SkeletonType.HandLeft) _leftOVRSkeleton = s;
-                    else if (s.GetSkeletonType() == OVRSkeleton.SkeletonType.HandRight) _rightOVRSkeleton = s;
+                    var t = s.GetSkeletonType();
+                    if (t == OVRSkeleton.SkeletonType.HandLeft || t == OVRSkeleton.SkeletonType.XRHandLeft) _leftOVRSkeleton = s;
+                    else if (t == OVRSkeleton.SkeletonType.HandRight || t == OVRSkeleton.SkeletonType.XRHandRight) _rightOVRSkeleton = s;
                 }
             }
         }
@@ -108,9 +137,22 @@ namespace Group10Gestures.Providers
             }
         }
 
+        private float _nextDiag;
+
+        private void LogDiagnostics()
+        {
+            if (Time.unscaledTime < _nextDiag) return;
+            _nextDiag = Time.unscaledTime + 3f;
+            string D(string n, OVRHand h, OVRSkeleton k) =>
+                n + ": hand=" + (h == null ? "MISSING" : "ok tracked=" + h.IsTracked) +
+                " skeleton=" + (k == null ? "MISSING" : "type=" + k.GetSkeletonType() + " init=" + k.IsInitialized + " valid=" + k.IsDataValid + " bones=" + (k.Bones == null ? 0 : k.Bones.Count));
+            Debug.Log("[MetaXRHandProvider] " + D("L", _leftOVRHand, _leftOVRSkeleton) + " | " + D("R", _rightOVRHand, _rightOVRSkeleton));
+        }
+
         public void UpdateProvider()
         {
             DiscoverOvrComponents();
+            LogDiagnostics();
 
             UpdateHand(Handedness.Left, _leftOVRHand, _leftOVRSkeleton, _leftBoneMap, _leftHand);
             UpdateHand(Handedness.Right, _rightOVRHand, _rightOVRSkeleton, _rightBoneMap, _rightHand);
@@ -136,21 +178,22 @@ namespace Group10Gestures.Providers
 
             RefreshBoneMap(ovrSkeleton, boneMap);
 
+            // Pick the id table that matches the skeleton Quest is actually delivering.
+            OVRSkeleton.SkeletonType skelType = ovrSkeleton.GetSkeletonType();
+            bool xrSkeleton = skelType == OVRSkeleton.SkeletonType.XRHandLeft || skelType == OVRSkeleton.SkeletonType.XRHandRight;
+            OVRSkeleton.BoneId[] idTable = xrSkeleton ? s_MediaPipeToXrBone : s_MediaPipeToOvrBone;
+
             for (int i = 0; i < 21; i++)
             {
-                OVRSkeleton.BoneId boneId = s_MediaPipeToOvrBone[i];
+                OVRSkeleton.BoneId boneId = idTable[i];
                 if (boneMap.TryGetValue(boneId, out Transform t) && t != null)
                 {
                     targetData.Joints[i] = t.position;
                 }
-                else if (i == 4 && boneMap.TryGetValue(OVRSkeleton.BoneId.Hand_ThumbTip, out Transform thumbTip) && thumbTip != null)
-                {
-                    targetData.Joints[i] = thumbTip.position;
-                }
                 else
                 {
                     // Fallback to wrist if bone not found
-                    if (boneMap.TryGetValue(OVRSkeleton.BoneId.Hand_WristRoot, out Transform wrist) && wrist != null)
+                    if (boneMap.TryGetValue(idTable[0], out Transform wrist) && wrist != null)
                     {
                         targetData.Joints[i] = wrist.position;
                     }

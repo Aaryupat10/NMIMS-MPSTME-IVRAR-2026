@@ -14,6 +14,9 @@ namespace Group10Gestures.Interaction
         private static void Init()
         {
             if (Object.FindAnyObjectByType<GameManager>() == null) return;
+
+            // Keep running (and keep receiving headset hand data) when the Unity window is not the active window.
+            Application.runInBackground = true;
             if (Object.FindAnyObjectByType<RoomBuilderController>() != null) return;
 
             var go = new GameObject("Group10_Interaction");

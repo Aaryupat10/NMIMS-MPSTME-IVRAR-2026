@@ -1,0 +1,10 @@
+# ninja log v5
+0	4042	8147235481645284	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a713bf488fdfde38
+535	4057	8147235489119765	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	405808ece36647e8
+1040	4060	8147235487682943	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f827c15b1386b36
+1524	4063	8147235490912941	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	e82b4437b0d09e78
+2512	4760	8147235500261042	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	29c13a198629a8a2
+2027	4813	8147235500907183	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	b8733ba833d7ed71
+3000	5363	8147235506493769	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	edf9679f7932400
+3530	5511	8147235507933994	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	11820eed005abfad
+5511	6431	8147235517104142	C:/Users/ASUS/NMIMS-MPSTME-IVRAR-2026(Github)/Group_10_Devraj_Aaryesh_Jiya/ARVR_Project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4y4w4v3i/obj/arm64-v8a/libgame.so	fe0c5be4e48fe99

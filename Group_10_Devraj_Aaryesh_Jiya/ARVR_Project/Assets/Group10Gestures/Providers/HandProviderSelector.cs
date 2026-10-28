@@ -31,6 +31,9 @@ namespace Group10Gestures.Providers
         public event Action<IHandProvider> OnProviderChanged;
 
         private IHandProvider _activeProvider;
+        private bool _fellBackToWebcam;     // true only when the startup auto-detect chose Webcam
+        private float _retryUntil;
+        private float _nextRetry;
         public IHandProvider ActiveProvider => _activeProvider;
         public ProviderType CurrentType { get; private set; }
 
@@ -59,6 +62,9 @@ namespace Group10Gestures.Providers
                 {
                     Debug.Log("[HandProviderSelector] No XR hand tracking detected at startup. Auto-falling back to Webcam MediaPipe.");
                     SwitchProvider(ProviderType.Webcam);
+                    // Over Quest Link the headset can take a few seconds to initialise, so keep re-checking for 30 s.
+                    _fellBackToWebcam = true;
+                    _retryUntil = Time.unscaledTime + 30f;
                 }
             }
             else
@@ -108,6 +114,21 @@ namespace Group10Gestures.Providers
                 ToggleProvider();
             }
 
+            if (_fellBackToWebcam && CurrentType == ProviderType.Webcam)
+            {
+                if (Time.unscaledTime > _retryUntil) _fellBackToWebcam = false;
+                else if (Time.unscaledTime >= _nextRetry)
+                {
+                    _nextRetry = Time.unscaledTime + 0.5f;
+                    if (CheckXrHandTrackingAvailable())
+                    {
+                        _fellBackToWebcam = false;
+                        Debug.Log("[HandProviderSelector] Headset became available after startup. Switching to Meta XR.");
+                        SwitchProvider(ProviderType.MetaXR);
+                    }
+                }
+            }
+
             if (_activeProvider != null)
             {
                 _activeProvider.UpdateProvider();
@@ -116,6 +137,7 @@ namespace Group10Gestures.Providers
 
         public void ToggleProvider()
         {
+            _fellBackToWebcam = false;
             ProviderType target = CurrentType == ProviderType.MetaXR ? ProviderType.Webcam : ProviderType.MetaXR;
             SwitchProvider(target);
         }

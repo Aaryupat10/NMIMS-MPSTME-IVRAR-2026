@@ -528,6 +528,13 @@ namespace Group10Gestures.Interaction
                 if (_floorSet) ResetWorld();
             }
 
+            // In the headset, lay the floor grid as soon as the headset is tracked, so the grid is visible before a hand is.
+            // (Floor-level tracking puts the eyes ~1.5 m above the origin; y > 0.5 means the pose is real.)
+            if (!IsWebcam && !_floorSet && _mode != InteractionMode.View && _cam.transform.position.y > 0.5f)
+            {
+                SetFloor();
+            }
+
             HandleKeys();
 
             GestureResult dom = _dominant == Handedness.Right ? _rec.RightResult : _rec.LeftResult;
@@ -695,7 +702,10 @@ namespace Group10Gestures.Interaction
             Vector3[] j = _filter.GetFilteredJoints(h);
             float palm = Mathf.Max(0.04f, Vector3.Distance(j[0], j[9]));
             float ratio = Vector3.Distance(j[4], j[8]) / palm;
-            bool target = t.Active ? ratio < _pinchExit : ratio < _pinchEnter;
+            // Real Quest hand tracking rarely brings the thumb and index tips fully together, so the headset gets looser limits.
+            float enter = IsWebcam ? _pinchEnter : Mathf.Max(_pinchEnter, 0.32f);
+            float exit = IsWebcam ? _pinchExit : Mathf.Max(_pinchExit, 0.55f);
+            bool target = t.Active ? ratio < exit : ratio < enter;
 
             if (target == t.Active)
             {
